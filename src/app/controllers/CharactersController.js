@@ -20,9 +20,9 @@ class CharactersController {
 
   async show(request, response) {
     try {
-      const { name } = request.params;
+      const { name } = request.query;
 
-      const url = buildMarvelApiRoute(`/characters/${name}`);
+      const url = buildMarvelApiRoute(`/characters?${name}`);
 
       const { data } = await marvelApi.get(url);
 
